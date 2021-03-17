@@ -1,0 +1,19 @@
+{
+    "name": "daunoanove/lumen-request-log",
+    "description": "",
+    "keywords": [],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vittorio Malaspina",
+            "email": "vittorio.malaspina@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "DaUnoANove\\Lumen\\Middleware\\": "src/"
+        }
+    }
+}
