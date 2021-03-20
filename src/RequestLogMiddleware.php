@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
 class RequestLogMiddleware {
+    public const VERSION = '1.0.2';
     protected const REQUEST_LOG_CHANNEL = 'REQUEST_LOG_CHANNEL';
 
     public function handle($request, Closure $next)
