@@ -32,15 +32,11 @@ class RequestLogMiddleware {
 
     public function make($request, $response): string
     {
-        switch ( true )
+        if ( is_string($response->headers->get('Content-Type')) AND true === str_contains($response->headers->get('Content-Type'), 'text/html') )
         {
-            case str_contains($response->headers->get('Content-Type'), 'text/html'):
-                $res = $this->removeContent($response);
-                break;
-
-            default:
-                $res = (string)$response;
-                break;
+            $res = $this->removeContent($response);
+        } else {
+            $res = (string)$response;
         }
 
         return sprintf("\n>>>>>>>> REQUEST\n%s\n\n<<<<<<<< RESPONSE\n%s\n", (string)$request, $res);
