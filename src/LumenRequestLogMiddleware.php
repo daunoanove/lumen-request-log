@@ -1,14 +1,14 @@
 <?php
 
-namespace DaUnoANove\Lumen\Middleware;
+namespace MalvikLab;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
-class RequestLogMiddleware {
-    public const VERSION = '1.0.2';
+class LumenRequestLogMiddleware {
+    protected const VERSION = '1.0.3';
     protected const REQUEST_LOG_CHANNEL = 'REQUEST_LOG_CHANNEL';
 
     public function handle($request, Closure $next)
@@ -45,11 +45,11 @@ class RequestLogMiddleware {
 
     protected function removeContent($obj): string
     {
-        switch ( true )
+        switch(true)
         {
             case $obj instanceof Request;
             case $obj instanceof Response;
-                return trim(str_replace($obj->getContent(), null, (string)$obj));
+                return trim(str_replace($obj->getContent(), '', (string)$obj));
                 break;
 
             default:
